@@ -12,6 +12,7 @@ var requestHandler = function(request, response) {
     if (request.method === "GET" && request.url === "/listings")
     {
         console.log(request);
+        response.writeHead(200, {"Content-Type": "application/json"});
 
         response.write(listingData);
         response.end();
@@ -19,7 +20,7 @@ var requestHandler = function(request, response) {
     else
     {
         response.writeHead(404);
-        response.end();
+        response.end("Bad gateway error");
     }
 
     //response.end("Im working");
